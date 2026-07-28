@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Tabs / Header -->
+        <header>
+            <h1>Proxy Assistant</h1>
+            <p>Your next-level all-in-one desktop voice assistant for Windows.</p>
+            <nav class="nav-tabs">
+                <a href="#home" class="tab-link active" onclick="switchTab('home', event)">Home</a>
+                <a href="#features" class="tab-link" onclick="switchTab('features', event)">Features</a>
+                <a href="#download" class="tab-link" onclick="switchTab('download', event)">How to Download</a>
+                <a href="#contact" class="tab-link" onclick="switchTab('contact', event)">Contact Us</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Home Tab Content -->
+            <div id="home" class="tab-content active">
+                <section class="card">
+                    <h2>Welcome to Proxy</h2>
+                    <p>Experience intelligent desktop automation powered by voice, vision, and system controls designed to seamlessly run on your Windows setup.</p>
+                    <a href="#download" class="download-btn" onclick="switchTab('download', event)">Get Started</a>
+                </section>
+            </div>
+
+            <!-- Features Tab Content -->
+            <div id="features" class="tab-content">
+                <section class="card text-left">
+                    <h2>Features</h2>
+                    <ul class="feature-list">
+                        <li><strong>System Diagnostics:</strong> Real-time tracking of CPU load, RAM status, battery health, and storage utilization.</li>
+                        <li><strong>Hardware Controls:</strong> Seamlessly adjust volume levels and screen brightness via voice commands.</li>
+                        <li><strong>Screen OCR & Vision:</strong> Locate elements on your screen instantly or run live visual context monitoring.</li>
+                        <li><strong>Dictation & Typing Mode:</strong> Advanced continuous hands-free text transcription and smart editing mode.</li>
+                        <li><strong>Gesture & Voice Navigation:</strong> Use webcam hand-tracking gestures or voice-driven cursor controls.</li>
+                        <li><strong>Sleep Mode & Custom Naming:</strong> Automatically sleeps when idle and awakens instantly to your custom assistant name.</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- How to Download Tab Content -->
+            <div id="download" class="tab-content">
+                <section class="card">
+                    <h2>How to Download & Setup</h2>
+                    <p>Download the latest package directly, extract it, and run your personal assistant profile.</p>
+                    <a href="downloads/Proxy_assistant.zip" class="download-btn" download>Download for Windows (ZIP)[cite: 2, 3]</a>
+                    
+                    <div class="instructions text-left">
+                        <h3>Quick Requirements & Steps:</h3>
+                        <ul>
+                            <li>Windows OS environment.</li>
+                            <li>Make sure <a href="https://github.com/UB-Mannheim/tesseract/wiki" target="_blank">Tesseract OCR</a> is installed at <code>C:\Program Files\Tesseract-OCR</code> for screen text features[cite: 2].</li>
+                            <li>Extract the downloaded zip file and double-click <code>Proxy_assistant.exe</code> to run your first-time configuration setup.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Contact Us Tab Content -->
+            <div id="contact" class="tab-content">
+                <section class="card">
+                    <h2>Contact Us</h2>
+                    <p>Have questions, feedback, or need support with your Proxy Assistant installation? Reach out to us below:</p>
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.');">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="4" required></textarea>
+                        <button type="submit" class="download-btn">Send Message</button>
+                        <p>or email : <br><a href="proxyassistantv1@gmail.com">proxyassistantv1@gmail.com</a></p>
+                    </form>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Proxy Assistant. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+    function switchTab(tabId, event) {
+        event.preventDefault();
+
+        // Remove active class from all nav tabs
+        const links = document.querySelectorAll('.tab-link');
+        links.forEach(link => link.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+
+        // Hide all tab contents immediately
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => {
+            content.classList.remove('active');
+            content.style.display = 'none';
+        });
+
+        // Show target tab content with a tiny delay to trigger CSS fade-in
+        const targetTab = document.getElementById(tabId);
+        targetTab.style.display = 'block';
+        setTimeout(() => {
+            targetTab.classList.add('active');
+        }, 10);
+    }
+</script>
+</body>
+</html>
