@@ -50,14 +50,15 @@
                 <section class="card">
                     <h2>How to Download & Setup</h2>
                     <p>Download the latest package directly, extract it, and run your personal assistant profile.</p>
-                    <a href="downloads/Proxy_assistant.zip" class="download-btn" download>Download for Windows (ZIP)[cite: 2, 3]</a>
+                    <!-- Exact lowercase path matching your repository's downloads folder -->
+                    <a href="downloads/proxy_assistant.zip" class="download-btn" download>Download for Windows (ZIP)</a>
                     
                     <div class="instructions text-left">
                         <h3>Quick Requirements & Steps:</h3>
                         <ul>
                             <li>Windows OS environment.</li>
-                            <li>Make sure <a href="https://github.com/UB-Mannheim/tesseract/wiki" target="_blank">Tesseract OCR</a> is installed at <code>C:\Program Files\Tesseract-OCR</code> for screen text features[cite: 2].</li>
-                            <li>Extract the downloaded zip file and double-click <code>Proxy_assistant.exe</code> to run your first-time configuration setup.</li>
+                            <li>Make sure <a href="https://github.com/UB-Mannheim/tesseract/wiki" target="_blank">Tesseract OCR</a> is installed at <code>C:\Program Files\Tesseract-OCR</code> for screen text features.</li>
+                            <li>Extract the downloaded zip file and double-click <code>proxy_assistant.exe</code> to run your first-time configuration setup.</li>
                         </ul>
                     </div>
                 </section>
@@ -73,7 +74,7 @@
                         <input type="email" placeholder="Your Email" required>
                         <textarea placeholder="Your Message" rows="4" required></textarea>
                         <button type="submit" class="download-btn">Send Message</button>
-                        <p>or email : <br><a href="proxyassistantv1@gmail.com">proxyassistantv1@gmail.com</a></p>
+                        <p>or email : <br><a href="mailto:proxyassistantv1@gmail.com">proxyassistantv1@gmail.com</a></p>
                     </form>
                 </section>
             </div>
@@ -85,28 +86,28 @@
     </div>
 
     <script>
-    function switchTab(tabId, event) {
-        event.preventDefault();
+        function switchTab(tabId, event) {
+            event.preventDefault();
 
-        // Remove active class from all nav tabs
-        const links = document.querySelectorAll('.tab-link');
-        links.forEach(link => link.classList.remove('active'));
-        event.currentTarget.classList.add('active');
+            // Remove active class from all nav tabs
+            const links = document.querySelectorAll('.tab-link');
+            links.forEach(link => link.classList.remove('active'));
+            event.currentTarget.classList.add('active');
 
-        // Hide all tab contents immediately
-        const contents = document.querySelectorAll('.tab-content');
-        contents.forEach(content => {
-            content.classList.remove('active');
-            content.style.display = 'none';
-        });
+            // Hide all tab contents immediately and clear active animation class
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+                content.style.display = 'none';
+            });
 
-        // Show target tab content with a tiny delay to trigger CSS fade-in
-        const targetTab = document.getElementById(tabId);
-        targetTab.style.display = 'block';
-        setTimeout(() => {
-            targetTab.classList.add('active');
-        }, 10);
-    }
-</script>
+            // Show target tab content with a smooth transition delay
+            const targetTab = document.getElementById(tabId);
+            targetTab.style.display = 'block';
+            setTimeout(() => {
+                targetTab.classList.add('active');
+            }, 10);
+        }
+    </script>
 </body>
 </html>
